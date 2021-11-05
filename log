@@ -1,0 +1,123 @@
+╭────────────────────── Traceback (most recent call last) ───────────────────────╮
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/cli/render/commands │
+│ .py:139 in render                                                              │
+│                                                                                │
+│   136 │   │   for SceneClass in scene_classes_from_file(file):                 │
+│   137 │   │   │   try:                                                         │
+│   138 │   │   │   │   scene = SceneClass()                                     │
+│ ❱ 139 │   │   │   │   scene.render()                                           │
+│   140 │   │   │   except Exception:                                            │
+│   141 │   │   │   │   error_console.print_exception()                          │
+│   142 │   │   │   │   sys.exit(1)                                              │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/scene/scene.py:213  │
+│ in render                                                                      │
+│                                                                                │
+│    210 │   │   """                                                             │
+│    211 │   │   self.setup()                                                    │
+│    212 │   │   try:                                                            │
+│ ❱  213 │   │   │   self.construct()                                            │
+│    214 │   │   except EndSceneEarlyException:                                  │
+│    215 │   │   │   pass                                                        │
+│    216 │   │   except RerunSceneException as e:                                │
+│                                                                                │
+│ /home/hamodata/Attention-and-Transformers/attention.py:57 in construct         │
+│                                                                                │
+│    54 │   │   │   ),                                                           │
+│    55 │   │   ]                                                                │
+│    56 │   │                                                                    │
+│ ❱  57 │   │   hm_text = DecimalMatrix(                                         │
+│    58 │   │   │   h_states.transpose(),                                        │
+│    59 │   │   │   element_to_mobject_config={"num_decimal_places": 0},         │
+│    60 │   │   │   left_bracket="\[",                                           │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/mobject/matrix.py:4 │
+│ 70 in __init__                                                                 │
+│                                                                                │
+│   467 │   │   element_to_mobject_config : Dict[:class:`str`, :class:`~.Mobject │
+│   468 │   │   │   Config for the desired mobject, by default {"num_decimal_pla │
+│   469 │   │   """                                                              │
+│ ❱ 470 │   │   super().__init__(                                                │
+│   471 │   │   │   matrix,                                                      │
+│   472 │   │   │   element_to_mobject=element_to_mobject,                       │
+│   473 │   │   │   element_to_mobject_config=element_to_mobject_config,         │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/mobject/matrix.py:1 │
+│ 90 in __init__                                                                 │
+│                                                                                │
+│   187 │   │   self.organize_mob_matrix(mob_matrix)                             │
+│   188 │   │   self.elements = VGroup(*it.chain(*mob_matrix))                   │
+│   189 │   │   self.add(self.elements)                                          │
+│ ❱ 190 │   │   self.add_brackets(self.left_bracket, self.right_bracket)         │
+│   191 │   │   self.center()                                                    │
+│   192 │   │   self.mob_matrix = mob_matrix                                     │
+│   193 │   │   if self.add_background_rectangles_to_entries:                    │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/mobject/matrix.py:2 │
+│ 38 in add_brackets                                                             │
+│                                                                                │
+│   235 │   │   │   The current matrix object (self).                            │
+│   236 │   │   """                                                              │
+│   237 │   │                                                                    │
+│ ❱ 238 │   │   bracket_pair = MathTex(left, right)                              │
+│   239 │   │   bracket_pair.scale(2)                                            │
+│   240 │   │   bracket_pair.stretch_to_fit_height(self.height + 2 * self.bracke │
+│   241 │   │   l_bracket, r_bracket = bracket_pair.split()                      │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/mobject/svg/tex_mob │
+│ ject.py:304 in __init__                                                        │
+│                                                                                │
+│   301 │   │   │   │   │   │   """,                                             │
+│   302 │   │   │   │   │   ),                                                   │
+│   303 │   │   │   │   )                                                        │
+│ ❱ 304 │   │   │   raise compilation_error                                      │
+│   305 │   │   self.set_color_by_tex_to_color_map(self.tex_to_color_map)        │
+│   306 │   │                                                                    │
+│   307 │   │   if self.organize_left_to_right:                                  │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/mobject/svg/tex_mob │
+│ ject.py:283 in __init__                                                        │
+│                                                                                │
+│   280 │   │   self.brace_notation_split_occurred = False                       │
+│   281 │   │   self.tex_strings = self.break_up_tex_strings(tex_strings)        │
+│   282 │   │   try:                                                             │
+│ ❱ 283 │   │   │   super().__init__(                                            │
+│   284 │   │   │   │   self.arg_separator.join(self.tex_strings),               │
+│   285 │   │   │   │   tex_environment=self.tex_environment,                    │
+│   286 │   │   │   │   tex_template=self.tex_template,                          │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/mobject/svg/tex_mob │
+│ ject.py:90 in __init__                                                         │
+│                                                                                │
+│    87 │   │                                                                    │
+│    88 │   │   assert isinstance(tex_string, str)                               │
+│    89 │   │   self.tex_string = tex_string                                     │
+│ ❱  90 │   │   file_name = tex_to_svg_file(                                     │
+│    91 │   │   │   self.get_modified_expression(tex_string),                    │
+│    92 │   │   │   environment=self.tex_environment,                            │
+│    93 │   │   │   tex_template=self.tex_template,                              │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/utils/tex_file_writ │
+│ ing.py:46 in tex_to_svg_file                                                   │
+│                                                                                │
+│    43 │   if tex_template is None:                                             │
+│    44 │   │   tex_template = config["tex_template"]                            │
+│    45 │   tex_file = generate_tex_file(expression, environment, tex_template)  │
+│ ❱  46 │   dvi_file = compile_tex(                                              │
+│    47 │   │   tex_file,                                                        │
+│    48 │   │   tex_template.tex_compiler,                                       │
+│    49 │   │   tex_template.output_format,                                      │
+│                                                                                │
+│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/utils/tex_file_writ │
+│ ing.py:239 in compile_tex                                                      │
+│                                                                                │
+│   236 │   │   │   │   │   │   │   │   for insight in get_insight(match):       │
+│   237 │   │   │   │   │   │   │   │   │   logger.info(insight)                 │
+│   238 │   │   │                                                                │
+│ ❱ 239 │   │   │   raise ValueError(                                            │
+│   240 │   │   │   │   f"{tex_compiler} error converting to"                    │
+│   241 │   │   │   │   f" {output_format[1:]}. See log output above or"         │
+│   242 │   │   │   │   f" the log file: {log_file}",                            │
+╰────────────────────────────────────────────────────────────────────────────────╯
+ValueError: latex error converting to dvi. See log output above or the log file: 
+media/Tex/95e57bc82daec072.log
