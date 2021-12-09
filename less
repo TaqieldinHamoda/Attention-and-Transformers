@@ -1,89 +1,0 @@
-Animation 0: Write(Text('Attention in RNNs')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                    Animation 2: FadeOut(Text('Attention in RNNs')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                      Animation 4: Write(Text('"I"')), etc.:   0%|          | 0/1 [00:00<?, ?it/s]                                                                            Animation 5: Write(MathTex('h^{(0)}')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                             Animation 6: Create(Arrow):   0%|          | 0/1 [00:00<?, ?it/s]                                                                 Animation 7: Create(Arrow):   0%|          | 0/1 [00:00<?, ?it/s]                                                                 Animation 8: Write(MathTex('h^{(1)} =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                               Animation 9: Write(DecimalMatrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                        Animation 10: Create(Arrow):   0%|          | 0/1 [00:00<?, ?it/s]                                                                  Animation 11: Create(Arrow):   0%|          | 0/1 [00:00<?, ?it/s]                                                                  Animation 12: Write(MathTex('h^{(2)} =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                Animation 13: Write(DecimalMatrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                         Animation 14: Create(Arrow):   0%|          | 0/1 [00:00<?, ?it/s]                                                                  Animation 15: Create(Arrow):   0%|          | 0/1 [00:00<?, ?it/s]                                                                  Animation 16: Write(MathTex('h^{(3)} =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                Animation 17: Write(DecimalMatrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                         Animation 19: Write(MathTex('s^{(0)} =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                Animation 20: Write(DecimalMatrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                         Animation 22: Create(Arrow):   0%|          | 0/1 [00:00<?, ?it/s]                                                                  Animation 23: Write(MathTex('s^{(1)} =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                Animation 25: Write(MathTex('\\alpha =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                Animation 26: Write(MathTex('softmax(')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                               Animation 27: Write(Matrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                  Animation 28: Write(MathTex(')')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                        Animation 30: ReplacementTransform(Matrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                 Animation 31: _MethodAnimation(MathTex(')')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                   Animation 33: Write(MathTex('=')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                        Animation 34: Write(DecimalMatrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                         Animation 35: FadeOut(MathTex('softmax(')), etc.:   0%|          | 0/1 [00:00<?, ?it/s]                                                                                       Animation 36: _MethodAnimation(MathTex('\\alpha =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                                           Animation 37: _MethodAnimation(Group):   0%|          | 0/1 [00:00<?, ?it/s]                                                                            Animation 39: Write(MathTex('c =')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                          Animation 40: Write(MathTex('\\alpha')):   0%|          | 0/1 [00:00<?, ?it/s]                                                                              Animation 41: Write(Matrix):   0%|          | 0/1 [00:00<?, ?it/s]                                                                  ╭────────────────────── Traceback (most recent call last) ───────────────────────╮
-│                                                                                │
-│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/cli/render/commands │
-│ .py:139 in render                                                              │
-│                                                                                │
-│   136 │   │   for SceneClass in scene_classes_from_file(file):                 │
-│   137 │   │   │   try:                                                         │
-│   138 │   │   │   │   scene = SceneClass()                                     │
-│ ❱ 139 │   │   │   │   scene.render()                                           │
-│   140 │   │   │   except Exception:                                            │
-│   141 │   │   │   │   error_console.print_exception()                          │
-│   142 │   │   │   │   sys.exit(1)                                              │
-│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/scene/scene.py:213  │
-│ in render                                                                      │
-│                                                                                │
-│    210 │   │   """                                                             │
-│    211 │   │   self.setup()                                                    │
-│    212 │   │   try:                                                            │
-│ ❱  213 │   │   │   self.construct()                                            │
-│    214 │   │   except EndSceneEarlyException:                                  │
-│    215 │   │   │   pass                                                        │
-│    216 │   │   except RerunSceneException as e:                                │
-│                                                                                │
-│ /home/hamodata/Attention-and-Transformers/attention.py:298 in construct        │
-│                                                                                │
-│   295 │   │   self.play(Write(h_matrix.next_to(temp, RIGHT)))                  │
-│   296 │   │                                                                    │
-│   297 │   │   self.wait(2)                                                     │
-│ ❱ 298 │   │   self.play(FadeOut(anno_label), FadeOut(s_anno_text))             │
-│   299 │   │   self.play(ReplacementTransform(temp, s_anno_text))               │
-│   300 │   │                                                                    │
-│   301 │   │   self.wait(2)                                                     │
-│                                                                                │
-│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/animation/fading.py │
-│ :184 in __init__                                                               │
-│                                                                                │
-│   181 │   """                                                                  │
-│   182 │                                                                        │
-│   183 │   def __init__(self, *mobjects: Mobject, **kwargs) -> None:            │
-│ ❱ 184 │   │   super().__init__(*mobjects, remover=True, **kwargs)              │
-│   185 │                                                                        │
-│   186 │   def create_target(self):                                             │
-│   187 │   │   return self._create_faded_mobject(fadeIn=False)                  │
-│                                                                                │
-│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/animation/fading.py │
-│ :77 in __init__                                                                │
-│                                                                                │
-│    74 │   │   │   │   shift = ORIGIN                                           │
-│    75 │   │   self.shift_vector = shift                                        │
-│    76 │   │   self.scale_factor = scale                                        │
-│ ❱  77 │   │   super().__init__(mobject, **kwargs)                              │
-│    78 │                                                                        │
-│    79 │   def _create_faded_mobject(self, fadeIn: bool) -> Mobject:            │
-│    80 │   │   """Create a faded, shifted and scaled copy of the mobject.       │
-│                                                                                │
-│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/animation/transform │
-│ .py:67 in __init__                                                             │
-│                                                                                │
-│    64 │   │   self.target_mobject: Mobject = (                                 │
-│    65 │   │   │   target_mobject if target_mobject is not None else Mobject()  │
-│    66 │   │   )                                                                │
-│ ❱  67 │   │   super().__init__(mobject, **kwargs)                              │
-│    68 │                                                                        │
-│    69 │   @property                                                            │
-│    70 │   def path_arc(self) -> float:                                         │
-│                                                                                │
-│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/animation/animation │
-│ .py:127 in __init__                                                            │
-│                                                                                │
-│   124 │   │   suspend_mobject_updating: bool = True,                           │
-│   125 │   │   **kwargs,                                                        │
-│   126 │   ) -> None:                                                           │
-│ ❱ 127 │   │   self._typecheck_input(mobject)                                   │
-│   128 │   │   self.run_time: float = run_time                                  │
-│   129 │   │   self.rate_func: Callable[[float], float] = rate_func             │
-│   130 │   │   self.name: Optional[str] = name                                  │
-│                                                                                │
-│ /home/hamodata/anaconda3/lib/python3.8/site-packages/manim/animation/animation │
-│ .py:157 in _typecheck_input                                                    │
-│                                                                                │
-│   154 │   │   if mobject is None:                                              │
-│   155 │   │   │   logger.debug("Animation with empty mobject")                 │
-│   156 │   │   elif not isinstance(mobject, (Mobject, OpenGLMobject)):          │
-│ ❱ 157 │   │   │   raise TypeError("Animation only works on Mobjects")          │
-│   158 │                                                                        │
-│   159 │   def __str__(self) -> str:                                            │
-│   160 │   │   if self.name:                                                    │
-╰────────────────────────────────────────────────────────────────────────────────╯
-TypeError: Animation only works on Mobjects
